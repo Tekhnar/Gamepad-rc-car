@@ -2,8 +2,14 @@
 #include <cstdio>
 
 int main() {
+	gamepad xbox;
+	xbox.openGamepad ("/dev/input/js0");
 	
-	
+	while (1) {
+		xbox.checkNewData ();
+		printf ("Steering_wheel %d Brake %d Throtlle %d\n",
+			xbox.data.steering_wheel, xbox.data.brake, xbox.data.throtlle);
+	}
 	return 0;
 }
 
